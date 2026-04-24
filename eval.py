@@ -343,7 +343,7 @@ def main() -> None:
             if not t: continue
             samples_dict[t] = list(range(args.start_index, args.start_index + limit_val))
         sys.argv.extend(["--samples", json.dumps(samples_dict)])
-    else:
+    elif "--samples" not in passthrough:
         sys.argv.extend(["--limit", str(args.limit)])
 
     if args.log_samples:
